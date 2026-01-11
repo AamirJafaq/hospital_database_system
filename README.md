@@ -1,3 +1,5 @@
+# <img width="243" height="200" alt="hospitals_logo" src="https://github.com/user-attachments/assets/204aa98a-6ee0-4730-b4cb-ebe2f475db6f" />
+
 ## 🏥 Hospital Management Database System
 Designed for academic and learning purposes using **PostgreSQL**.
 ### 📌 Overview
@@ -62,8 +64,8 @@ This project implements a **Hospital Management Database System** using PostgreS
 | prescribed_date   | DATE         | Prescription date                        |
 | allergies         | VARCHAR(255) | Known allergies                          |
 
-### ER Diagram
-<img width="1295" height="935" alt="Untitled" src="https://github.com/user-attachments/assets/eb0e7622-0e70-44e4-8266-11cfc9540b00" />
+### 📈 ER Diagram
+<img width="994" height="813" alt="Screenshot 2026-01-11 224201" src="https://github.com/user-attachments/assets/00aac034-f6dc-4c6a-a3d1-bd182d387b42" />
 
 ### ⚙️ Database Functions
 
