@@ -1,4 +1,4 @@
-# <img width="243" height="200" alt="hospitals_logo" src="https://github.com/user-attachments/assets/204aa98a-6ee0-4730-b4cb-ebe2f475db6f" />
+# <img width="543" height="200" alt="hospitals_logo" src="https://github.com/user-attachments/assets/204aa98a-6ee0-4730-b4cb-ebe2f475db6f" />
 
 ## 🏥 Hospital Management Database System
 Designed for academic and learning purposes using **PostgreSQL**.
