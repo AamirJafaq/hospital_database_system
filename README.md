@@ -74,19 +74,20 @@ Searches medical records by medicine name (partial match).
 #### appointment_info()
 Retrieves appointment and medical details for a specific date.
 <img width="1276" height="414" alt="Screenshot 2026-01-11 222538" src="https://github.com/user-attachments/assets/cd92dafd-5671-4794-920a-fb9d55931c08" />
-CREATE OR REPLACE FUNCTION appointment_info(dat DATE)
-RETURNS TABLE (patnt_id INT, appoint DATE, appoint_time TIME, doct VARCHAR(100), diag VARCHAR(255), alerg VARCHAR(255) )
-LANGUAGE plpgsql
-AS 
-$$
-BEGIN
-	RETURN QUERY
-	SELECT mr.patient_id, apt.appointment_date, apt.appointment_time, d.full_name, mr.diagnoses, mr.allergies
-	FROM medical_records AS mr
-	JOIN appointments apt ON apt.appointment_id=mr.appointment_id
-	JOIN doctors d ON apt.doctor_id=d.doctor_id
-	WHERE apt.appointment_date=dat;
-END;
-$$;
 
-SELECT * FROM appointment_info(dat := '2026-06-15');
+#### appointment_availability()
+Displays doctors’ available appointment slots.
+<img width="911" height="385" alt="Screenshot 2026-01-11 222738" src="https://github.com/user-attachments/assets/e08bfefc-9d72-4994-8312-0469063ad405" />
+
+#### slot_availability_trigger()
+If appointment status becomes Cancelled or Expired, The doctor’s appointment slot is marked as Available. This ensures synchronization between appointments and slot availability.
+<img width="684" height="528" alt="Screenshot 2026-01-11 223143" src="https://github.com/user-attachments/assets/7ea30b51-876d-4080-b693-39b6ac01e3d0" />
+
+### 🛠️ Technologies Used
+- PostgreSQL
+- SQL & PL/pgSQL
+- Constraints, Functions, Triggers
+
+### 👤 Author
+**Aamir Khan**
+Research Analyst, 
