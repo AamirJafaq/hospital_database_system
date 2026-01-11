@@ -69,7 +69,7 @@ This project implements a **Hospital Management Database System** using PostgreS
 
 #### medicines_info()
 Searches medical records by medicine name (partial match).
-<img width="684" height="486" alt="Screenshot 2026-01-11 222324" src="https://github.com/user-attachments/assets/dd94087e-5986-4526-8404-e97f7477b0ff" />
+<img width="931" height="382" alt="Screenshot 2026-01-11 223423" src="https://github.com/user-attachments/assets/4437446c-dee6-4898-9bff-6c3311b95299" />
 
 #### appointment_info()
 Retrieves appointment and medical details for a specific date.
@@ -85,9 +85,11 @@ If appointment status becomes Cancelled or Expired, The doctor’s appointment s
 
 ### 🛠️ Technologies Used
 - PostgreSQL
-- SQL & PL/pgSQL
+- SQL & **PL/pgSQL**
 - Constraints, Functions, Triggers
+### 📜 License
+This project is open-source and free to use. Feel free to share and adapt the content for educational purposes.
 
 ### 👤 Author
 **Aamir Khan**
-Research Analyst, 
+Research Analyst, **Center for Research & Development in Mathematics and Applications (CIDMA)**
