@@ -29,19 +29,19 @@ This project implements a **Hospital Management Database System** using PostgreS
 | --------------- | ------------ | ---------------------------- |
 | department_id   | SERIAL (PK)  | Unique department identifier |
 | department_name | VARCHAR(100) | Name of department           |
-#### 2. doctors 
+#### 3. doctors 
 | Column Name   | Data Type    | Description                            |
 | ------------- | ------------ | -------------------------------------- |
 | doctor_id     | SERIAL (PK)  | Unique doctor identifier               |
 | full_name     | VARCHAR(100) | Doctor full name                       |
 | department_id | INT (FK)     | References `departments.department_id` |
-#### 2. appointment_slots
+#### 4. appointment_slots
 | Column Name      | Data Type   | Description                                      |
 | ---------------- | ----------- | ------------------------------------------------ |
 | doctor_id        | INT (FK)    | References `doctors.doctor_id`                   |
 | slot_time        | TIME        | Appointment slot time                            |
 | available_status | VARCHAR(25) | Slot availability (`Available`, `Not Available`) |
-#### 2. appointments 
+#### 5. appointments 
 | Column Name      | Data Type   | Description                                              |
 | ---------------- | ----------- | -------------------------------------------------------- |
 | appointment_id   | SERIAL (PK) | Unique appointment identifier                            |
@@ -51,7 +51,7 @@ This project implements a **Hospital Management Database System** using PostgreS
 | appointment_date | DATE        | Date of appointment                                      |
 | appointment_time | TIME        | Time of appointment                                      |
 | status           | VARCHAR(20) | Appointment status (`Cancelled`, `Appointed`, `Expired`) |
-#### 2. medical_records
+#### 6. medical_records
 | Column Name       | Data Type    | Description                              |
 | ----------------- | ------------ | ---------------------------------------- |
 | medical_record_id | SERIAL (PK)  | Unique medical record identifier         |
@@ -64,9 +64,29 @@ This project implements a **Hospital Management Database System** using PostgreS
 
 ### ER Diagram
 <img width="1295" height="935" alt="Untitled" src="https://github.com/user-attachments/assets/eb0e7622-0e70-44e4-8266-11cfc9540b00" />
+
 ### ⚙️ Database Functions
-#### medicines_info(med_name)
+
+#### medicines_info()
 Searches medical records by medicine name (partial match).
 <img width="684" height="486" alt="Screenshot 2026-01-11 222324" src="https://github.com/user-attachments/assets/dd94087e-5986-4526-8404-e97f7477b0ff" />
 
+#### appointment_info()
+Retrieves appointment and medical details for a specific date.
+<img width="1276" height="414" alt="Screenshot 2026-01-11 222538" src="https://github.com/user-attachments/assets/cd92dafd-5671-4794-920a-fb9d55931c08" />
+CREATE OR REPLACE FUNCTION appointment_info(dat DATE)
+RETURNS TABLE (patnt_id INT, appoint DATE, appoint_time TIME, doct VARCHAR(100), diag VARCHAR(255), alerg VARCHAR(255) )
+LANGUAGE plpgsql
+AS 
+$$
+BEGIN
+	RETURN QUERY
+	SELECT mr.patient_id, apt.appointment_date, apt.appointment_time, d.full_name, mr.diagnoses, mr.allergies
+	FROM medical_records AS mr
+	JOIN appointments apt ON apt.appointment_id=mr.appointment_id
+	JOIN doctors d ON apt.doctor_id=d.doctor_id
+	WHERE apt.appointment_date=dat;
+END;
+$$;
 
+SELECT * FROM appointment_info(dat := '2026-06-15');
