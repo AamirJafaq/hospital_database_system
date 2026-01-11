@@ -54,7 +54,7 @@ CREATE TABLE appointments (
     department_id INT NOT NULL,
     appointment_date DATE NOT NULL,
     appointment_time TIME NOT NULL,
-    status VARCHAR(20) CHECK (status IN ('Pending', 'Cancelled', 'Completed')),
+    status VARCHAR(20) CHECK (status IN ('Cancelled', 'Appointed', 'Expired')),
     CONSTRAINT fk_appointments_patient_id FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
 	CONSTRAINT fk_appointments_doctor_id FOREIGN KEY (doctor_id) REFERENCES doctors(doctor_id),
 	CONSTRAINT fk_appointments_department_id FOREIGN KEY (department_id) REFERENCES departments(department_id),
@@ -75,3 +75,4 @@ CREATE TABLE medical_records (
     CONSTRAINT fk_medical_records_patient_id FOREIGN KEY (patient_id) REFERENCES patients(patient_id),
     CONSTRAINT fk_medical_records_appointment_id FOREIGN KEY (appointment_id) REFERENCES appointments(appointment_id)
 );
+
