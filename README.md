@@ -86,6 +86,7 @@ Displays doctors’ available appointment slots.
 
 #### slot_availability_trigger()
 If appointment status becomes Cancelled or Expired, The doctor’s appointment slot is marked as Available. This ensures synchronization between appointments and slot availability.
+
 <img width="684" height="528" alt="Screenshot 2026-01-11 223143" src="https://github.com/user-attachments/assets/7ea30b51-876d-4080-b693-39b6ac01e3d0" />
 
 ### 🛠️ Technologies Used
