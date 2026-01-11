@@ -62,53 +62,11 @@ This project implements a **Hospital Management Database System** using PostgreS
 | prescribed_date   | DATE         | Prescription date                        |
 | allergies         | VARCHAR(255) | Known allergies                          |
 
-
-PATIENTS
----------
-patient_id (PK)
-full_name
-dob
-insurance
-username
-email
-telephone
-    |
-    | 1
-    |------< APPOINTMENTS >------| 1
-                    appointment_id (PK)
-                    appointment_date
-                    appointment_time
-                    status
-                    patient_id (FK)
-                    doctor_id (FK)
-                    department_id (FK)
-                               |
-                               | 1
-                               |------ DOCTORS
-                                        doctor_id (PK)
-                                        full_name
-                                        department_id (FK)
-                                             |
-                                             | M
-                                             |------ DEPARTMENTS
-                                                      department_id (PK)
-                                                      department_name
-
-DOCTORS
-   |
-   | 1
-   |------< APPOINTMENT_SLOTS
-              doctor_id (FK)
-              slot_time
-              available_status
+### ER Diagram
+<img width="1295" height="935" alt="Untitled" src="https://github.com/user-attachments/assets/eb0e7622-0e70-44e4-8266-11cfc9540b00" />
+### ⚙️ Database Functions
+#### medicines_info(med_name)
+Searches medical records by medicine name (partial match).
+<img width="684" height="486" alt="Screenshot 2026-01-11 222324" src="https://github.com/user-attachments/assets/dd94087e-5986-4526-8404-e97f7477b0ff" />
 
 
-APPOINTMENTS
-     |
-     | 1
-     |------ MEDICAL_RECORDS
-              medical_record_id (PK)
-              diagnoses
-              medicines
-              prescribed_date
-              allergies
