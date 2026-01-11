@@ -97,5 +97,5 @@ If appointment status becomes Cancelled or Expired, The doctor’s appointment s
 This project is open-source and free to use. Feel free to share and adapt the content for educational purposes.
 
 ### 👤 Author
-**Aamir Khan**
+**Aamir Khan** \
 Research Analyst, **Center for Research & Development in Mathematics and Applications (CIDMA)**
